@@ -1,0 +1,76 @@
+<h5 class="card-title text-center"><i class="fas fa-list"></i>Editar Producto #{{producto_id}}</h5>
+<hr>
+<span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
+<div class="tab-pane p-3" id="nav-nuevo" role="tabpanel" aria-labelledby="nav-nuevo-tab" tabindex="0">
+    <form id="formulario" autocomplete="off">
+        <div class="row mb-3">
+            <div class="col-md-3 mb-3">
+                <label for="codigo">Código <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                    <input class="form-control" type="text" name="codigo" id="codigo" placeholder="Barcode" [(ngModel)]="codigo">
+                </div>
+                <span id="errorCodigo" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="nombre">Descripcion <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-list"></i></span>
+                    <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="descripcion">
+                </div>
+                <span id="errorNombre" class="text-danger"></span>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="precio_compra">Precio Compra <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    <input class="form-control" type="number" step="0.01" min="0.01" name="precio_compra" id="precio_compra" placeholder="Precio" [(ngModel)]="precio_compra">
+                </div>
+                <span id="errorCompra" class="text-danger"></span>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="precio_venta">Precio Venta <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    <input class="form-control" type="number" step="0.01" min="0.01" name="precio_venta" id="precio_venta" placeholder="Precio" [(ngModel)]="precio_venta">
+                </div>
+                <span id="errorVenta" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-group">
+                    <label for="id_medida">Medida <span class="text-danger">*</span></label>
+                    <select id="id_medida" class="form-control" name="id_medida" [(ngModel)]="medida">
+                        <ng-container *ngFor="let medida of lista_de_medidas">
+                            <option [value]="medida.id">{{medida.nombre}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <span id="errorMedida" class="text-danger"></span>
+            </div>
+            <div class="col-md-5 mb-3">
+                <div class="form-group">
+                    <label for="id_categoria">Categoria <span class="text-danger">*</span></label>
+                    <select id="id_categoria" class="form-control" name="id_categoria" [(ngModel)]="categoria">
+                        <ng-container *ngFor="let categoria of lista_de_categorias">
+                            <option [value]="categoria.id">{{categoria.nombre}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <span id="errorCategoria" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="foto">Foto (Opcional)</label>
+                    <input id="foto" class="form-control" type="file" name="foto" accept=".png, .jpg, .jpeg" (change)="procesarPerfil($event)">
+                </div>
+                <div id="containerPreview" *ngIf="IMAGEN_PREVISUALIZADA">
+                    <img class="img-thumbnail" [src]="IMAGEN_PREVISUALIZADA" alt="LOGO_PNG" width="200">
+                </div>
+            </div>
+        </div>
+        <div class="text-end">
+            <button class="btn btn-danger" routerLink="/productos/lista" type="button" id="btnNuevo">Salir</button>
+            <button class="btn btn-primary" (click)="registrar()" type="submit" id="btnAccion">Registrar</button>
+        </div>
+    </form>
+</div>

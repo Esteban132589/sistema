@@ -1,0 +1,62 @@
+<div class="tab-pane p-3" id="nav-nuevo" role="tabpanel" aria-labelledby="nav-nuevo-tab" tabindex="0">
+    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
+    <h5 class="card-title text-center"><i class="fas fa-users"></i> Editar Cliente #{{cliente_id}}</h5>
+    <hr>
+    <form id="formulario" autocomplete="off">
+        <div class="row mb-3">
+            <div class="col-md-2 mb-3">
+                <div class="form-group">
+                    <label for="identidad">Identidad <span class="text-danger">*</span></label>
+                    <select id="identidad" class="form-control" name="identidad" [(ngModel)]="identidad">
+                        <option value="dni">DNI</option>
+                        <option value="ruc">RUC</option>
+                    </select>
+                </div>
+                <span id="errorIdentidad" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="num_identidad">N° Identidad <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-list"></i></span>
+                    <input [(ngModel)]="num_identidad" class="form-control" type="number" name="num_identidad" id="num_identidad" placeholder="N° Identidad">
+                </div>
+                <span id="errorNum_identidad" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="nombre">Nombre <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-list"></i></span>
+                    <input [(ngModel)]="nombre" class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre">
+                </div>
+                <span id="errorNombre" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="telefono">Teléfono <span class="text-danger">*</span></label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    <input class="form-control" type="number" name="telefono" id="telefono" placeholder="Telefono" [(ngModel)]="telefono">
+                </div>
+                <span id="errorTelefono" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="correo">Correo</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input [(ngModel)]="correo" class="form-control" type="text" name="correo" id="correo" placeholder="Correo Electrónico">
+                </div>
+                <span id="errorCorreo" class="text-danger"></span>
+            </div>
+            <div class="col-md-12 mb-3">
+                <div class="form-group">
+                    <label for="direccion">Dirreción <span class="text-danger">*</span></label>
+                    <textarea id="direccion" class="form-control" name="direccion" rows="3" [(ngModel)]="direccion" placeholder="Dirección"></textarea>
+                </div>
+                <span id="errorDireccion" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="text-end">
+            <button class="btn btn-danger" type="button" routerLink="/clientes/lista" id="btnNuevo">Salir</button>
+            <button class="btn btn-primary" (click)="registrar()" type="button"  id="btnAccion">Registrar</button>
+        </div>
+    </form>
+</div>

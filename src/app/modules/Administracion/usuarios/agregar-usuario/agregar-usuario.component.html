@@ -1,0 +1,81 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+        <div class="tab-content" id="nav-tabContent">
+            <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
+            <h5 class="card-title text-center">
+                <i class="fas fa-user"></i> Añadir Nuevo Usuario 
+            </h5>
+            <hr>
+            <div class="table-responsive">
+                <form class="p-4" id="formulario" autocomplete="off">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Nombres</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-list"></i></span>
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombres" [(ngModel)]="nombre">
+                            </div>
+                            <span id="errorNombre" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Apellidos</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-list-alt"></i></span>
+                                <input type="text" id="apellidos" name="apellido" class="form-control" placeholder="Apellidos" [(ngModel)]="apellido">
+                            </div>
+                            <span id="errorApellido" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Correo</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo Electrónico" [(ngModel)]="correo">
+                            </div>
+                            <span id="errorCorreo" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Teléfono</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="number" id="telefono" name="telefono" class="form-control" placeholder="Teléfono" [(ngModel)]="telefono">
+                            </div>
+                            <span id="errorTelefono" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-8 col-sm-6 mb-2">
+                            <label>Dirección</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-home"></i></span>                                <input type="text" name="direccion" class="form-control" placeholder="Dirección" [(ngModel)]="direccion">
+                            </div>
+                            <span id="errorDireccion" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Clave</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" id="clave" name="clave" class="form-control" placeholder="Contraseña" [(ngModel)]="clave">
+                            </div>
+                            <span id="errorClave" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Rol</label>
+                            <div class="input-group">
+                                <label class="input-group-text" for="rol"><i class="fas fa-id-card"></i></label>
+                                <select class="form-select" id="rol" name="rol" [(ngModel)]="rol">
+                                    <ng-container *ngFor="let rol of roles">
+                                        <option [value]="rol.id">{{rol.nombre}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                            <span id="errorRol" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button routerLink="/usuarios/lista" class="btn btn-danger" type="button" id="btnNuevo">Salir</button>
+                        <button class="btn btn-primary" type="button" id="btnAccion" (click)="registrar()">Registrar</button>
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</div>

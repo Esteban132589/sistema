@@ -1,0 +1,40 @@
+<div >
+    <form>
+        <h1>Register</h1>
+        <div class="row mb-5">
+            <div>
+                <label>Email</label>
+                <input type="text" placeholder="" name="email" [(ngModel)]="email">
+                <div>
+            </div>
+            <div>
+                <label >Contraseña</label>
+                <input type="password" placeholder="" name="password" [(ngModel)]="password">
+            </div>
+            <div>
+                <label >Confirmar Contraseña</label>
+                <input type="password" placeholder="" name="password" [(ngModel)]="password_confirmation">
+            </div>
+            <div>
+                <label>Nombre</label>
+                <input type="text" placeholder="" name="nombre" [(ngModel)]="nombre">
+            </div>
+            <div>
+                <label>Apellido</label>
+                <input type="text" placeholder="" name="apellido" [(ngModel)]="apellido">
+            </div>
+            <div>
+                <label >Telefono</label>
+                <input type="text" placeholder="" name="telefono" [(ngModel)]="telefono">
+            </div>
+            <div>
+                <label >Direccion</label>
+                <input type="text" placeholder="" name="direccion" [(ngModel)]="direccion">
+            </div>
+
+            <button type="submit" (click)="registrar()">
+                <span class="indicator-label">Registrar</span>
+            </button>
+        </div>
+    <!-- </form> -->
+</div>

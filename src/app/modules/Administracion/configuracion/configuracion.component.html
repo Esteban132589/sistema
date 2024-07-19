@@ -1,0 +1,77 @@
+<div class="page-wrapper">
+    <div class="page-content">
+        <router-outlet>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Datos de de Empresa</h5>
+                    <hr>
+                    <form class="p-4" id="formulario" autocomplete="off">
+                        <input type="hidden" id="id" name="id" value="">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 mb-2">
+                                <label>Ruc <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                    <input type="text" id="ruc" name="ruc" class="form-control" value="" placeholder="Ruc" [(ngModel)]="ruc">
+                                </div>
+                                <span id="errorRuc" class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 mb-2">
+                                <label>Nombre <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-list"></i></span>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" value="" placeholder="Nombre" [(ngModel)]="nombre">
+                                </div>
+                                <span id="errorNombre" class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 mb-2">
+                                <label>Teléfono <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    <input type="number" id="telefono" name="telefono" class="form-control" value="" placeholder="Teléfono" [(ngModel)]="telefono">
+                                </div>
+                                <span id="errorTelefono" class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 mb-2">
+                                <label>Correo <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" id="correo" name="correo" class="form-control" value="" placeholder="Correo Electrónico" [(ngModel)]="correo">
+                                </div>
+                                <span id="errorCorreo" class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-8 col-sm-6 mb-2">
+                                <label>Dirección <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-home"></i></span>
+                                    <input type="text" id="direccion" name="direccion" class="form-control" value="" placeholder="Dirección" [(ngModel)]="direccion">
+                                </div>
+                                <span id="errorDireccion" class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 mb-2">
+                                <label>Impuesto (Opcional)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-percent"></i></span>
+                                    <input type="number" id="impuesto" name="impuesto" class="form-control" value="" placeholder="Impuesto" [(ngModel)]="impuesto">
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="foto">Logo (PNG)</label>
+                                    <input id="foto" class="form-control" type="file" name="perfil" accept=".png, .jpg, .jpeg" (change)="procesarPerfil($event)">
+                                </div>
+                                <div id="containerPreview" *ngIf="IMAGEN_PREVISUALIZADA">
+                                    <img class="img-thumbnail" [src]="IMAGEN_PREVISUALIZADA" alt="LOGO_PNG" width="200">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <button class="btn btn-primary" type="button" (click)="actualizar()" id="btnAccion">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </router-outlet>
+    </div>
+</div>
