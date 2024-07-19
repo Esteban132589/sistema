@@ -11,12 +11,14 @@ export class HeaderComponent implements OnInit {
   usuario:any = null
   nombre: any = null
   email: any = null
+  opciones: any = false
 
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    console.log(this.authService.usuario, "roles")
     this.usuario = this.authService.usuario
     this.nombre = this.authService.usuario.nombre;
     this.email = this.authService.usuario.email;
@@ -24,6 +26,10 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.authService.logout();
+  }
+
+  mostrarOpciones(){
+    this.opciones = !this.opciones;
   }
 
 }

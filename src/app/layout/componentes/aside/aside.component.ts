@@ -8,6 +8,9 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
 })
 export class AsideComponent implements OnInit {
   usuario:any = null
+  mostrar: any = false
+  mostrarM: any = false
+
   constructor(
     public authService: AuthService
   ) { }
@@ -17,4 +20,15 @@ export class AsideComponent implements OnInit {
     this.usuario = this.authService.usuario;
   }
 
+  mostrarAcordeon(){
+    this.mostrar = !this.mostrar;
+  }
+
+  mostrarMantenimiento(){
+    this.mostrarM = !this.mostrarM;
+  }
+
+  verificarPermiso(permiso: any){
+    console.log(permiso, )
+  }
 }

@@ -53,10 +53,18 @@ export class AuthService {
   }
 
   logout(){
+    let URL = URL_SERVICIOS + "/auth/logout";
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
     setTimeout(() => {
       location.href = URL_FROTEND + "/auth/login";
     }, 50);
+
+    return this.httpClient.post(URL, null).pipe(
+      catchError((err) => {
+        console.error('error',err);
+        return of(undefined);
+      })
+    )
   }
 }

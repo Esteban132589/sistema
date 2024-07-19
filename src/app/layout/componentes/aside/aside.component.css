@@ -157,3 +157,42 @@
 .ms-auto {
     margin-left: auto !important;
 }
+
+svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa {
+    overflow: visible;
+    box-sizing: content-box;
+}
+
+
+.svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+}
+img, svg {
+    vertical-align: middle;
+}
+
+.sidebar-wrapper .metismenu .mm-active>a, .sidebar-wrapper .metismenu a:active, .sidebar-wrapper .metismenu a:focus, .sidebar-wrapper .metismenu a:hover {
+    color: #008cff;
+    text-decoration: none;
+    background: rgb(13 110 253 / .12);
+}
+
+.metismenu .mm-collapse:not(.mm-show) {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* .mm-show{
+	height: 2.22222px;
+} */
+
+.has-arrow{
+	user-select: none;
+	cursor: pointer;
+}

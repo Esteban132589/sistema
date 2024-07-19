@@ -1,19 +1,54 @@
-<div >
-    <form >
-        <h1>Login</h1>
-        <div class="row mb-5">
-            <div>
-                <label >Contraseña</label>
-                <input type="password" placeholder="" name="name" [(ngModel)]="password">
-            <div></div></div>
-            <div>
-                <label>Email</label>
-                <input type="text" placeholder="" name="email" [(ngModel)]="email">
-            <div></div></div>
+<body class="bg-login">
+    <!--wrapper-->
+    <div class="wrapper">
+        <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                    <div class="col mx-auto">
+                        <div class="mb-4 text-center">
+                            <img src="../../../../assets/logo.png" width="180" alt="" />
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="border p-4 rounded">
+                                    <div class="text-center">
+                                        <h3 class="">Iniciar Sesión</h3>
+                                    </div>
+                                    <div class="login-separater text-center mb-4"> <span>Bienvenido De vuelta</span>
+                                        <hr />
+                                    </div>
+                                    <div class="form-body">
+                                        <form class="row g-3" id="formulario" method="POST" autocomplete="off">
+                                            <div class="col-12">
+                                                <label for="correo" class="form-label">Correo Electrónico</label>
+                                                <input type="email" class="form-control" id="correo" name="email" placeholder="Correo Electrónico" [(ngModel)]="email">
+                                                <span id="errorCorreo" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="clave" class="form-label">Contraseña</label>
+                                                <div class="input-group" id="show_hide_password">
+                                                    <input type="password" class="form-control border-end-0" id="clave" placeholder="Contraseña" name="name" [(ngModel)]="password">
+                                                    <!-- <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a> -->
+                                                </div>
+                                                <span id="errorClave" class="text-danger"></span>
+                                            </div>
+                                            <!-- <div class="col-md-12 text-end"> <a href="">Olvidaste tu contraseña?</a>
+                                            </div> -->
+                                            <div class="col-12">
+                                                <div class="d-grid">
+                                                    <button type="submit" (click)="login()" class="btn btn-primary"><i class="bx bxs-lock-open"></i>Acceso</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end row-->
+            </div>
         </div>
-
-        <button type="submit" (click)="login()">
-            <span class="indicator-label">Login</span>
-        </button>
-    <div></div></form>
-</div>
+    </div>
+    
+</body>
